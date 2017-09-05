@@ -3,10 +3,6 @@
 from __future__ import unicode_literals
 import time
 
-# !! This is the configuration of Nikola. !! #
-# !!  You should edit it to your liking.  !! #
-
-
 # ! Some settings can be different in different languages.
 # ! A comment stating (translatable) is used to denote those.
 # ! There are two ways to specify a translatable setting:
@@ -27,6 +23,64 @@ SITE_URL = "https://pavnguyen.github.io/"
 # BASE_URL = "https://pavnguyen.github.io/"
 BLOG_EMAIL = "vunguyen.xbt@gmail.com"
 BLOG_DESCRIPTION = "Đây là blog cá nhân chia sẻ suy nghĩ về mọi thứ trên đời :D"  # (translatable)
+
+# This is an example that works well with Nikola's default Bootstrap3 theme.
+# It displays the search field in the navigation bar, and the results
+# in a modal dialog.
+import json
+
+SEARCH_FORM = """
+<span class="navbar-form navbar-left">
+<input type="text" id="tipue_search_input" class="form-control" placeholder="Search">
+</span>"""
+
+EXTRA_HEAD_DATA = """
+<link rel="stylesheet" type="text/css" href="/assets/css/tipuesearch.css">
+"""
+
+BODY_END = """
+<!-- Modal -->
+<div id="search-results" class="modal fade" role="dialog" style="height: 80%;">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Search Results:</h4>
+      </div>
+      <div class="modal-body" id="tipue_search_content" style="max-height: 600px; overflow-y: auto;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+var siteUrl = """ + json.dumps(SITE_URL) + """
+$(document).ready(function() {
+    $.when(
+        $.getScript( siteUrl + "/assets/js/tipuesearch_set.js" ),
+        $.getScript( siteUrl + "/assets/js/tipuesearch.js" ),
+        $.Deferred(function( deferred ){
+            $( deferred.resolve );
+        })
+    ).done(function() {
+        $('#tipue_search_input').tipuesearch({
+            'mode': 'json',
+            'contentLocation': siteUrl + '/assets/js/tipuesearch_content.json'
+        });
+        $('#tipue_search_input').keyup(function (e) {
+            if (e.keyCode == 13) {
+                $('#search-results').modal()
+            }
+        });
+    });
+});
+</script>
+"""
 
 # Nikola is multilingual!
 #
@@ -941,7 +995,7 @@ LICENSE = ""
 
 # A small copyright notice for the page footer (in HTML).
 # (translatable)
-CONTENT_FOOTER = 'Contents &copy; {date}         <a href="mailto:{email}">{author}</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         {license}'
+CONTENT_FOOTER = 'Contents &copy; {date}         <a href="mailto:{email}">{author}</a> - Powered by         <a href="https://www.python.org" rel="nofollow">Python</a>         {license}'
 
 # Things that will be passed to CONTENT_FOOTER.format().  This is done
 # for translatability, as dicts are not formattable.  Nikola will
