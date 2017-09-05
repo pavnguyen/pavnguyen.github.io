@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://pavnguyen.github.io/</loc>
-  <lastmod>2017-09-05T19:01:00Z</lastmod>
+  <lastmod>2017-09-05T19:04:00Z</lastmod>
  </url>
  <url>
   <loc>https://pavnguyen.github.io/2017/</loc>
@@ -15,7 +15,7 @@
  </url>
  <url>
   <loc>https://pavnguyen.github.io/archive.html</loc>
-  <lastmod>2017-09-05T18:44:00Z</lastmod>
+  <lastmod>2017-09-05T19:11:00Z</lastmod>
  </url>
  <url>
   <loc>https://pavnguyen.github.io/categories/</loc>
@@ -47,6 +47,6 @@
  </url>
  <url>
   <loc>https://pavnguyen.github.io/tipue_search.html</loc>
-  <lastmod>2017-09-05T19:00:00Z</lastmod>
+  <lastmod>2017-09-05T19:04:00Z</lastmod>
  </url>
 </urlset>
