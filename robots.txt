@@ -1,0 +1,4 @@
+Sitemap: https://pavnguyen.github.io/sitemapindex.xml
+
+User-Agent: *
+Host: pavnguyen.github.io
